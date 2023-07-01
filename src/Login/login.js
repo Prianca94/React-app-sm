@@ -1,5 +1,6 @@
 import React from "react";
 import "./login.scss";
+import { Link } from "react-router-dom";
 
 export default function Login(props) {
   return (
@@ -9,7 +10,7 @@ export default function Login(props) {
           <h1>Hello world</h1>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
           <span>Don't u have a account</span>
-          <button>Register</button>
+         <Link to="/register"> <button>Register</button></Link>
         </div>
         <div className="right">
           <h1>Login</h1>
