@@ -1,8 +1,8 @@
 $themes:(
     light:(
 
-    textColor:white,
-    bg:black,
+    textColor:black,
+    bg:white,
     logo:darkblue,
     bgSoft:white,
     textColorSoft:#555,
@@ -44,4 +44,18 @@ $themes:(
   
   @function themed($key) {
     @return map-get($theme-map, $key);
+  }
+
+  @mixin mobile{
+    @media (max-width: 480px) {
+      
+      @content
+    }
+  }
+
+  @mixin tablet{
+    @media (max-width: 960px) {
+      
+      @content
+    }
   }

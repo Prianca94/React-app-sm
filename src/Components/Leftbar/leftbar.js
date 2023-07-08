@@ -13,13 +13,14 @@ import Messagesicon from "../../Assets/Images/messages.png";
 import Tutorialicon from "../../Assets/Images/tutorial.png";
 import Videosicon from "../../Assets/Images/videos.png";
 import Watch from "../../Assets/Images/watch.png";
+import { Link } from "react-router-dom";
 
 export default function Leftbar(props) {
   return (
       <div className="leftbar">
         <div className="container">
           <div className="menu">
-            <div className="user">
+           <Link to="/profile/1" style={{"textDecoration":"none",color:"white"}}> <div className="user">
               <img
                 src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v546batch3-mynt-34-badgewatercolor_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=89288ef4b47127f7f34a5998b50e4470"
                 height="20"
@@ -27,7 +28,7 @@ export default function Leftbar(props) {
                 alt="pic"
               ></img>
               <span>Pri</span>
-            </div>
+            </div></Link>
             <div className="item">
               <img src={Friendsicon} alt="f" />
               <span>Friends</span>

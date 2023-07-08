@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "../Rightbar/rightbar.scss";
+import { AuthContext } from '../../Context/authContext';
 export default function Rightbar(props) {
+
+    const {login, currentUser}=useContext(AuthContext);
     
 
     return (
@@ -21,8 +24,8 @@ export default function Rightbar(props) {
                             </div>
                             <div className='user'>
                                 <div className='userInfo'>
-                                <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v546batch3-mynt-34-badgewatercolor_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=89288ef4b47127f7f34a5998b50e4470"/>
-                                    <span>Pri</span>
+                                <img src={currentUser.ProfilePic}/>
+                                    <span>{currentUser.name}</span>
                                 </div>
                                 <div className='buttons'>
                                     <button>Follow</button>

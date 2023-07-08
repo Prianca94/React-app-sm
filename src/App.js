@@ -11,23 +11,30 @@ import Home from './Home/home';
 import {
   createBrowserRouter,
   Navigate,
+  Outlet,
   RouterProvider,
 } from "react-router-dom";
 import "./style.scss";
+import { useContext } from 'react';
+import { DarkModeContext } from './Context/darkModeContext';
+import { AuthContext } from './Context/authContext';
 
 function App() {
 
-  const currentUser=true;
+  const {currentUser}=useContext(AuthContext);
+  const {darkMode}=useContext(DarkModeContext);
+  console.log("xxx",darkMode);
+  console.log("Currentuser",currentUser);
 
   const Layout=()=>{
     return(
-      <div className='theme-dark'>
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
       <Navbar />
       <div style={{ display: "flex" }}>
         <Leftbar />
         <div style={{ flex: 8 }}>
-          <Home/>
-          {/* <Outlet /> */}
+          {/* <Home/> */}
+          <Outlet/> 
         </div>
         <Rightbar />
       </div>
@@ -52,6 +59,7 @@ function App() {
       path: "/register",
       element: <Register/>,     
     },
+   
     {
       path: "/",
       element: (<ProtectedRoute><Layout/></ProtectedRoute>),
@@ -64,7 +72,8 @@ function App() {
         {
           path:"/profile/:id",
           element:<Profile/>
-        }
+        },
+      
       ],
     },
   ]);

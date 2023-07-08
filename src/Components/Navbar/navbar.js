@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "../Navbar/navbar.scss"
 import HomeIcon from '@mui/icons-material/Home';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
@@ -8,8 +8,14 @@ import MarkEmailUnreadOutlinedIcon from '@mui/icons-material/MarkEmailUnreadOutl
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import { Link } from 'react-router-dom';
+import { DarkModeContext } from '../../Context/darkModeContext';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import { AuthContext } from '../../Context/authContext';
 
 export default function Navbar(props) {
+
+    const {toggle,darkMode}=useContext(DarkModeContext);
+    const {login, currentUser}=useContext(AuthContext);
     
     return (
         
@@ -17,7 +23,8 @@ export default function Navbar(props) {
                     <div className='left'>
                        <Link to="/" style={{textDecoration:"none"}}> <span>Make-A-Friend</span></Link>
                        <HomeIcon/>
-                       <DarkModeOutlinedIcon/>
+                       {darkMode==true? <LightModeIcon onClick={toggle}/>:<DarkModeOutlinedIcon onClick={toggle}/>}
+                       
                        <GridViewOutlinedIcon/>
                        <div className='search'>
                         <SearchOutlinedIcon/>
@@ -29,8 +36,8 @@ export default function Navbar(props) {
                         <MarkEmailUnreadOutlinedIcon/>
                         <NotificationsNoneOutlinedIcon/>
                         <div className='user'>
-                        <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v546batch3-mynt-34-badgewatercolor_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=89288ef4b47127f7f34a5998b50e4470" height="20" width="20" alt="pic"></img>
-                        <span>Pri</span>
+                        <img src={currentUser.ProfilePic} height="20" width="20" alt="pic"></img>
+                        <span>{currentUser.name}</span>
                     </div>
                     </div>
                    

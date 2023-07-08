@@ -6,20 +6,19 @@
     flex:2;
     position:sticky;
     top:40px;
-    height: calc(100vh - 35px);
-    overflow-y: scroll;
-    background-color: themed("bg");
-  
-    
+    height: calc(100vh - 40px);
+    overflow: scroll;
+    background-color: themed("bg");    
     color: themed("textColor");
+
+    @include mobile{
+      display: none;
+   }
 
     ::-webkit-scrollbar{
         display: none;
     }
     
-
-
-
     hr{
         margin: 5px 0px;
         border: none;
