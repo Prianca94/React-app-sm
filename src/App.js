@@ -42,12 +42,16 @@ function App() {
   }
 
   const ProtectedRoute=({children})=>{
- if(!currentUser){
-  return(<Navigate to="/login"></Navigate>)
- }
- else{
-  return children;
- }
+//  if(!currentUser){
+//   return(<Navigate to="/login"></Navigate>)
+//  }
+//  else{
+//   return children;
+//  }
+
+return children;
+
+ 
   }
 
   const router = createBrowserRouter([
